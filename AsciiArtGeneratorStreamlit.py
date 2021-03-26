@@ -1,6 +1,5 @@
 import PIL.Image
 import streamlit as st
-import os
 
 # streamlit run AsciiArtGeneratorStreamlit.py in terminal
 
