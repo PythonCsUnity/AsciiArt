@@ -1,5 +1,6 @@
 import PIL.Image
 import streamlit as st
+import pyautogui
 
 # streamlit run AsciiArtGeneratorStreamlit.py in terminal
 
@@ -28,10 +29,10 @@ def pixel_to_ascii(image, ASCII_CHARS):
     ascii_str = ""
     for pixel in pixels:
         try:
-            ascii_str += ASCII_CHARS[pixel//(255//(len(ASCII_CHARS))) - 1]
+            ascii_str += ASCII_CHARS[pixel//(255//(len(ASCII_CHARS)))]
         except:
             try:
-                ascii_str += ASCII_CHARS[pixel // (255 // (len(ASCII_CHARS)))]
+                ascii_str += ASCII_CHARS[pixel // (255 // (len(ASCII_CHARS))) - 1]
             except:
                 try:
                     ascii_str += ASCII_CHARS[pixel // (255 // (len(ASCII_CHARS))) + 1]
@@ -81,9 +82,17 @@ def main():
                 f.write(ascii_img)
         except:
             st.write("Input a valid file path")
-
+        col1, col2, col3 = st.beta_columns(3)
+        if col1.button("Original screen size"):
+            pyautogui.hotkey("ctrl", "0")
+        if col2.button("Zoom in"):
+            pyautogui.hotkey("ctrl", "+")
+        if col3.button("Zoom out"):
+            pyautogui.hotkey("ctrl", "-")
         st.subheader("ASCII IMAGE")
         st.text("(Zoom out to see full image if it is too large)\n" + ascii_img)
+        st.subheader("Original image:")
+        st.image(path, width=img_width * 4)
     except:
         st.write("Choose Valid Selections")
 main()
