@@ -1,5 +1,7 @@
 import PIL.Image
 import streamlit as st
+import os
+os.system("pip install pyautogui")
 import pyautogui
 
 # streamlit run AsciiArtGeneratorStreamlit.py in terminal
