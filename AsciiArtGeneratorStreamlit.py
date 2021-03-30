@@ -85,16 +85,13 @@ def main():
         col1, col2, col3 = st.beta_columns(3)
         if col1.button("Original screen size"):
             st.write("orig")
-            keyboard.press("ctrl")
-            keyboard.release("ctrl")
+            keyboard.press_and_release('ctrl + 0')
         if col2.button("Zoom in"):
             st.write("in")
-            keyboard.press("ctrl")
-            keyboard.release("ctrl")
+            keyboard.press_and_release('ctrl + +')
         if col3.button("Zoom out"):
             st.write("out")
-            keyboard.press("ctrl")
-            keyboard.release("ctrl")
+            keyboard.press_and_release('ctrl + -')
         st.subheader("ASCII IMAGE")
         st.text("(Zoom out to see full image if it is too large)\n" + ascii_img)
         st.subheader("Original image:")
