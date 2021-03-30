@@ -83,15 +83,27 @@ def main():
         except:
             st.write("Input a valid file path")
         col1, col2, col3 = st.beta_columns(3)
-        if col1.button("Original screen size"):
+        size1 = col1.button(label="Original screen size")
+        size2 = col2.button("Zoom in")
+        size3 = col3.button("Zoom out")
+        if size1:
             st.write("orig")
-            keyboard.press_and_release('ctrl + 0')
-        if col2.button("Zoom in"):
+            keyboard.press('ctrl')
+            keyboard.press('0')
+            keyboard.release('0')
+            keyboard.release('ctrl')
+        if size2:
             st.write("in")
-            keyboard.press_and_release('ctrl + +')
-        if col3.button("Zoom out"):
+            keyboard.press('ctrl')
+            keyboard.press('+')
+            keyboard.release('+')
+            keyboard.release('ctrl')
+        if size3:
             st.write("out")
-            keyboard.press_and_release('ctrl + -')
+            keyboard.press('ctrl')
+            keyboard.press('-')
+            keyboard.release('-')
+            keyboard.release('ctrl')
         st.subheader("ASCII IMAGE")
         st.text("(Zoom out to see full image if it is too large)\n" + ascii_img)
         st.subheader("Original image:")
