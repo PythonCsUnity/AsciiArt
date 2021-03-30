@@ -1,6 +1,6 @@
 import PIL.Image
 import streamlit as st
-import pyautogui
+import keyboard
 
 # streamlit run AsciiArtGeneratorStreamlit.py in terminal
 
@@ -84,11 +84,20 @@ def main():
             st.write("Input a valid file path")
         col1, col2, col3 = st.beta_columns(3)
         if col1.button("Original screen size"):
-            pyautogui.hotkey("ctrl", "0")
+            keyboard.press("ctrl")
+            keyboard.press("0")
+            keyboard.release("ctrl")
+            keyboard.release("0")
         if col2.button("Zoom in"):
-            pyautogui.hotkey("ctrl", "+")
+            keyboard.press("ctrl")
+            keyboard.press("+")
+            keyboard.release("ctrl")
+            keyboard.release("+")
         if col3.button("Zoom out"):
-            pyautogui.hotkey("ctrl", "-")
+            keyboard.press("ctrl")
+            keyboard.press("-")
+            keyboard.release("ctrl")
+            keyboard.release("-")
         st.subheader("ASCII IMAGE")
         st.text("(Zoom out to see full image if it is too large)\n" + ascii_img)
         st.subheader("Original image:")
