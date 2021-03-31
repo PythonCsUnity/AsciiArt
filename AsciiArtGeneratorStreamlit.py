@@ -88,7 +88,7 @@ def main():
         size3 = col3.button("Zoom out")
         if size1:
             st.write("This function is currently not working"\
-                     + "(Use keyboard shortcut Ctrl + 0 to go back to original size)")
+                     + " (Use keyboard shortcut Ctrl + 0 to go back to original size)")
         if size2:
             st.write("This function is currently not working (Use keyboard shortcut Ctrl + + to zoom in)")
         if size3:
