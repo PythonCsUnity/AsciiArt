@@ -87,14 +87,12 @@ def main():
         size2 = col2.button("Zoom in")
         size3 = col3.button("Zoom out")
         if size1:
-            st.write("orig")
-            st.write("This function is currently not working")
+            st.write("This function is currently not working"\
+                     + "(Use keyboard shortcut Ctrl + 0 to go back to original size)")
         if size2:
-            st.write("in")
-            st.write("This function is currently not working")
+            st.write("This function is currently not working (Use keyboard shortcut Ctrl + + to zoom in)")
         if size3:
-            st.write("out")
-            st.write("This function is currently not working")
+            st.write("This function is currently not working (Use keyboard shortcut Ctrl + - to zoom out)")
         st.subheader("ASCII IMAGE")
         st.text("(Zoom out to see full image if it is too large)\n" + ascii_img)
         st.subheader("Original image:")
