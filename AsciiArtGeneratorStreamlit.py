@@ -88,13 +88,13 @@ def main():
         size3 = col3.button("Zoom out")
         if size1:
             st.write("orig")
-            keyboard.press_and_release("o")
+            st.write("This function is currently not working")
         if size2:
             st.write("in")
-            keyboard.press_and_release("ctrl")
+            st.write("This function is currently not working")
         if size3:
             st.write("out")
-            keyboard.press_and_release("alt")
+            st.write("This function is currently not working")
         st.subheader("ASCII IMAGE")
         st.text("(Zoom out to see full image if it is too large)\n" + ascii_img)
         st.subheader("Original image:")
