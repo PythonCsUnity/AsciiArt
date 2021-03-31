@@ -1,8 +1,6 @@
 import PIL.Image
 import streamlit as st
-#import keyboard
-import pynput
-from pynput.keyboard import Key, Controller
+import keyboard
 
 # streamlit run AsciiArtGeneratorStreamlit.py in terminal
 
@@ -85,28 +83,18 @@ def main():
         except:
             st.write("Input a valid file path")
         col1, col2, col3 = st.beta_columns(3)
-        keyboard = Controller()
         size1 = col1.button(label="Original screen size")
         size2 = col2.button("Zoom in")
         size3 = col3.button("Zoom out")
         if size1:
             st.write("orig")
-            keyboard.press(Key.ctrl.value)
-            keyboard.press('0')
-            keyboard.release('0')
-            keyboard.release(Key.ctrl.value)
+            keyboard.press_and_release("o")
         if size2:
             st.write("in")
-            keyboard.press(Key.ctrl.value)
-            keyboard.press('+')
-            keyboard.release('+')
-            keyboard.release(Key.ctrl.value)
+            keyboard.press_and_release("ctrl")
         if size3:
             st.write("out")
-            keyboard.press(Key.ctrl.value)
-            keyboard.press('-')
-            keyboard.release('-')
-            keyboard.release(Key.ctrl.value)
+            keyboard.press_and_release("alt")
         st.subheader("ASCII IMAGE")
         st.text("(Zoom out to see full image if it is too large)\n" + ascii_img)
         st.subheader("Original image:")
