@@ -72,16 +72,12 @@ def main():
         for i in range(0, ascii_str_len, img_width):
             ascii_img += ascii_str[i:i+img_width] + "\n"
 
-        #save the string to a file
-        with open("AsciiArt.txt", "w") as f:
-            f.write(ascii_img)
-        uploadPath = st.text_input("Type the file path you want to save to (include file name)"\
-                                   + "(Ex:C:\\Users\\abc123\\Desktop\\Ascii Art\\AsciiImage.txt):")
-        try:
-            with open(uploadPath, "w") as f:
+        fileName = st.text_input("Type the file name you want to save the image as (Ex: AsciiArt.txt)")
+        if st.button("Save ASCII Image"):
+            with open(fileName, "w") as f:
                 f.write(ascii_img)
-        except:
-            st.write("Input a valid file path")
+        else:
+            st.write("Input a valid file name")
         col1, col2, col3 = st.beta_columns(3)
         size1 = col1.button(label="Original screen size")
         size2 = col2.button("Zoom in")
